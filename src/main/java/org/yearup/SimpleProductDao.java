@@ -2,7 +2,6 @@ package org.yearup;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,19 +14,31 @@ public class SimpleProductDao implements ProductDao {
     private Map<Long, Product> products = new HashMap<>();
 
     @Override
-    public Long add(Product product) {
+    public Long add(Product product) throws BadKeyException {
+        if (product.getProductId() != null) {
+            throw new BadKeyException("Busted");
+        }
+            Long key = Long.valueOf(idBase++);
+            Product p = new Product(key,
+                    product.getName(), product.getCategory(), product.getPrice());
+            products.put(key, p);
+            return key;
 
-        return null;
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        return products.values().stream().toList();
     }
 
 
     @Override
-    public Product findByProductId() {
-        return null;
+    public Product findByProductId(Long productId) throws BadKeyException {
+        if (products.containsKey(productId)){
+            return products.get(productId);
+        }
+        else {
+            throw new BadKeyException("Product ID not found");
+        }
     }
 }

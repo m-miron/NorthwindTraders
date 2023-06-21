@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface ProductDao {
 
-    Long add(Product product);
+    Long add(Product product) throws BadKeyException;
 
     List<Product> getAll();
 
-    Product findByProductId();
+    Product findByProductId(Long productId) throws BadKeyException;
 }
