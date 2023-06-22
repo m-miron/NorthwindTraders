@@ -1,4 +1,7 @@
-package org.yearup;
+package org.yearup.dao;
+
+import org.yearup.application.BadKeyException;
+import org.yearup.model.Product;
 
 import java.util.List;
 

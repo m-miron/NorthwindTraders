@@ -1,14 +1,14 @@
-package org.yearup;
+package org.yearup.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.yearup.dao.ProductDao;
+import org.yearup.dao.SimpleProductDao;
 
 @Configuration
 public class MainConfig {
 
     @Bean
-    @Primary
     ProductDao productDao(){
         return new SimpleProductDao();
     }

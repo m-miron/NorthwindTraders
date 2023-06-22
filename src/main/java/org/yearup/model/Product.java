@@ -1,4 +1,4 @@
-package org.yearup;
+package org.yearup.model;
 
 public class Product {
 

@@ -12,3 +12,12 @@ public class Main {
     }
 
 }
+
+//        ApplicationContext context = SpringApplication.run(Main.class, args);//Obtain the application context
+//        Application application = context.getBean(Application.class);//Retrieve the Application bean using getBean() method.
+//        application.run();
+
+
+//        ApplicationContext context = SpringApplication.run(Main.class, args);
+//        NorthwindApplication northwindApplication = context.getBean(NorthwindApplication.class);
+//        northwindApplication.run(args);}}
